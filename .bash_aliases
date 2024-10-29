@@ -1,0 +1,1 @@
+alias wtf="gdev wtf --"

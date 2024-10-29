@@ -1,0 +1,2 @@
+
+source ~/.gusto/init.sh

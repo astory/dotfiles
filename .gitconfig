@@ -1,0 +1,11 @@
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
+[user]
+	name = Alec Story
+	email = alec.story@gusto.com
+[core]
+	hooksPath = /Users/alec.story/.gusto/githooks
+[init]
+	defaultBranch = main
