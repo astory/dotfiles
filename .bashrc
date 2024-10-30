@@ -15,3 +15,6 @@ SELECT="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
 ## Throw it all together 
 PS1="${RESET}${YELLOW}${NORMAL} \`${SELECT}\` ${YELLOW}\u:\w\$${NORMAL} "
 export PS2="&gt; "
+
+# Ask for color by default
+export CLICOLOR=1
