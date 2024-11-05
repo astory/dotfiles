@@ -1,4 +1,3 @@
-source ~/.gusto/init.sh
 source ~/.bash_aliases
 
 # Prompt setup

@@ -1,3 +1,5 @@
+alias ed="ed -p\*"
+
 nvim () {
   regex='^'"${HOME}"'/workspace/zenpayroll(/.*)?$'
   if [[ "$(pwd)" =~ $regex ]]; then
