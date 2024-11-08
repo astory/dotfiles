@@ -1,9 +1,10 @@
 alias ed="ed -p\*"
 
-nvim () {
-  regex='^'"${HOME}"'/workspace/zenpayroll(/.*)?$'
-  if [[ "$(pwd)" =~ $regex ]]; then
-    export XDG_DATA_HOME="${HOME}/workspace/zenpayroll/.local/share/vim"
-  fi
-  $(which nvim) $@
-}
+# This might be unnecessary now that we've updated system ruby
+#nvim () {
+#  regex='^'"${HOME}"'/workspace/zenpayroll(/.*)?$'
+#  if [[ "$(pwd)" =~ $regex ]]; then
+#    export XDG_DATA_HOME="${HOME}/workspace/zenpayroll/.local/share/vim"
+#  fi
+#  $(which nvim) $@
+#}
