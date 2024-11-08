@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+export GEM_PATH="nvim/mason/packages/ruby-lsp:$GEM_PATH"
+exec nvim/mason/packages/ruby-lsp/bin/ruby-lsp "$@"

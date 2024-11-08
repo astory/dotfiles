@@ -1,0 +1,1 @@
+{"links":{"share":{"mason-schemas\/lsp\/sorbet.json":"mason-schemas\/lsp.json"},"opt":{},"bin":{"srb":"srb"}},"primary_source":{"id":"pkg:gem\/sorbet@0.5.11642","type":"registry+v1"},"secondary_sources":[],"schema_version":"1.1","metrics":{"completion_time":1731082007044,"start_time":1731082005182},"name":"sorbet"}
