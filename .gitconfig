@@ -10,3 +10,6 @@
 	excludesFile = /Users/alec.story/.gitignore
 [init]
 	defaultBranch = main
+[alias]
+	br = branch
+	co = checkout
