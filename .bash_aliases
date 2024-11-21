@@ -1,4 +1,5 @@
 alias ed="ed -p\*"
+alias cdg='cd $(pwd | sed '\''s,/workspace/zenpayroll/.*$,/workspace/zenpayroll,'\'')'
 
 # This might be unnecessary now that we've updated system ruby
 #nvim () {
@@ -8,3 +9,14 @@ alias ed="ed -p\*"
 #  fi
 #  $(which nvim) $@
 #}
+
+n_times () {
+  log=$(mktemp)
+  parallel -n 0 --joblog="$log" --keep-order --files \
+    "${@:2}" \
+    ::: $(seq $1)
+
+  cat "$log"
+  echo "Code Count"
+  awk 'NR>1{arr[$7]++}END{for (a in arr) print a, arr[a]}' "$log"
+}

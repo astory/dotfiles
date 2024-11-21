@@ -17,3 +17,20 @@ export PS2="&gt; "
 
 # Ask for color by default
 export CLICOLOR=1
+
+# Git autocompletion, requires `brew install git bash-completion`
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+  . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi
+
+export EDITOR=nvim
+
+# Keep lots of bash history
+shopt -s histappend
+HISTSIZE=1000000
+HISTFILESIZE=1000000
+
+# Set `USE_CODEOWNERS_RS=true` in your shell init script to use our new
+# rust-based `codeowners` pre-commit hook. Significantly faster code ownership
+# checks await! 
+USE_CODEOWNERS_RS=true
