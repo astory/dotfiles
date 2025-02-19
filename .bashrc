@@ -1,4 +1,5 @@
 source ~/.bash_aliases
+source ~/.profile
 
 # Prompt setup
 ## Colored frowny setup
@@ -34,3 +35,4 @@ HISTFILESIZE=1000000
 # rust-based `codeowners` pre-commit hook. Significantly faster code ownership
 # checks await! 
 USE_CODEOWNERS_RS=true
+source "/Users/alec.story/.rover/env"

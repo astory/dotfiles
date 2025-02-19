@@ -137,6 +137,7 @@ return {
 
   {
     "tpope/vim-fugitive",
+    lazy = false,
     dependencies = { "tpope/vim-rhubarb" },
     keys = {
       { "<leader>gbl", ":Git blame<cr>", desc = "Git blame" },
@@ -155,6 +156,10 @@ return {
 
   { "tpope/vim-surround", event = { "BufReadPost", "BufNewFile" } },
   { "tpope/vim-unimpaired", event = { "BufReadPost", "BufNewFile" } },
+  {
+    "sindrets/diffview.nvim",
+    lazy = false,
+  },
   { "vim-ruby/vim-ruby", event = { "BufReadPost", "BufNewFile" } },
 
   {
@@ -170,4 +175,23 @@ return {
 
   { "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
   "wsdjeg/vim-fetch",
+  "ngmy/vim-rubocop",
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'BurntSushi/ripgrep',
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    },
+    lazy = false,
+  },
 }

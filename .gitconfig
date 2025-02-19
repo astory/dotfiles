@@ -7,10 +7,12 @@
 	name = Alec Story
 	email = alec.story@gusto.com
 [core]
-	hooksPath = /Users/alec.story/.gusto/githooks
 	excludesFile = /Users/alec.story/.gitignore
 [init]
 	defaultBranch = main
+	templateDir = /Users/alec.story/.git-template
 [alias]
 	br = branch
 	co = checkout
+[maintenance]
+	repo = /Users/alec.story/workspace/zenpayroll
