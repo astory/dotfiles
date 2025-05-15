@@ -45,10 +45,10 @@ rebase_command () {
 
 n_times () {
   log=$(mktemp)
-  parallel -n 0 --joblog="$log" --keep-order --files \
-    "${@:2}" \
-    ::: $(seq $1)
-
+  # Only one job at a time because parallel tests are broke.  Thanks, Ruby!
+  parallel --jobs 1 --max-args 0 --joblog="$log" --keep-order --files \
+    "${@:2} 2>&1" \
+    ::: $(seq $1) 
   cat "$log"
   echo "Code Count"
   awk 'NR>1{arr[$7]++}END{for (a in arr) print a, arr[a]}' "$log"

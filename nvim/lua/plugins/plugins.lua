@@ -74,18 +74,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "omnisyle/nvim-hidesig",
     },
     config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "lua", "ruby", "vimdoc" },
         auto_install = false,
         highlight = { enable = true, },
-        hidesig = {
-          enable = true,
-          opacity = 0.5,
-          delay = 200,
-        },
         textobjects = {
           select = {
             enable = true,
