@@ -158,6 +158,7 @@ return {
 
   {
     "vim-test/vim-test",
+    lazy = false,
     config = function() vim.g["test#strategy"] = "neoterm" end,
     keys = {
       { "<leader>tf", ":w<cr>:TestFile<cr>", desc = "Test current file" },
@@ -184,6 +185,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'BurntSushi/ripgrep',
+      'nvim-telescope/telescope-live-grep-args.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     lazy = false,

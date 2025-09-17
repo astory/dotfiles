@@ -2,6 +2,8 @@ alias ed="ed -p\*"
 alias cdg='cd $(to_workspace)'
 alias pull_main="git checkout main && git fetch && git pull && bundle install && RAILS_ENV=development bin/rails db:migrate && yarn install"
 alias recheck="git rebase -x \"git diff --name-only HEAD~1 --diff-filter=ACM | tr '\n' '\0' | lefthook run pre-commit --files-from-stdin -n\""
+alias acab='bin/rubocop -A $(git diff --name-only --diff-filter=d main | grep -E "\.rb$" | tr "\n" " ")'
+alias vimdiff='nvim -d'
 
 in_workspace() {
   if [[ -z $1 ]]; then
@@ -43,6 +45,10 @@ rebase_command () {
   git rebase -x "${command}" "${@:2}"
 }
 
+# Usage:
+# $ n_times N command arg1 arg2 arg3 ...
+# Example:
+# $ n_times 10 bin/rspec packs/selling_gusto
 n_times () {
   log=$(mktemp)
   # Only one job at a time because parallel tests are broke.  Thanks, Ruby!
@@ -69,25 +75,28 @@ find_test () {
   else
     target=$(echo $input_filename | sed 's/\.rb$/_spec\.rb/')
   fi
+  original_dir=$(pwd)
   ( # Subshell to keep directory changes contained
     cd $(dirname $(realpath $1))
     while [ true ]; do
       dir=$(pwd)
       # Erase to start of line
-      printf "\33[2K\r"
+      printf "\33[2K\r" >&2
       printf '%s' "Looking for $target in $dir..." >&2
       results=$(cdg && find $dir -name $target)
       if [[ -z $results ]]; then
         if ! in_workspace $(dirname $dir); then
-          printf "\33[2K\r"
+          printf "\33[2K\r" >&2
           echo "Could not find file named $target." >&2
           return 1
         fi
         cd ..
       else
         # Erase to start of line to clean up
-        printf "\33[2K\r"
-        echo $results
+        printf "\33[2K\r" >&2
+        results=$(echo "$results" | xargs grealpath -s --relative-to="$original_dir")
+        echo "Using $results" | paste -sd ", " - >&2
+        echo "$results"
         return 0
       fi
     done

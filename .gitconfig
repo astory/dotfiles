@@ -6,6 +6,7 @@
 [user]
 	name = Alec Story
 	email = alec.story@gusto.com
+	signingkey = /Users/alec.story/.ssh/id_ed25519.pub
 [core]
 	excludesFile = /Users/alec.story/.gitignore
 [init]
@@ -16,3 +17,14 @@
 	co = checkout
 [maintenance]
 	repo = /Users/alec.story/workspace/zenpayroll
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[diff]
+	tool = "nvim -d"
+	prompt = false
+[merge]
+	tool = "nvimdiff"
+[mergetool "nvimdiff"]
+	layout = "LOCAL,BASE,REMOTE / MERGED"
